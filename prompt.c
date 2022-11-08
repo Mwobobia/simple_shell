@@ -1,21 +1,16 @@
-#define _GNU_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
 #include "shell.h"
 	
-int main(void)
+int user_prompt(void)
 
 {
 	char *line = NULL;
 	size_t len = 0;
 
-	_putchar('$');
-	getline(&line, &len, stdin);
-	while (!EOF)
+	while (getline(&line, &len, stdin)!=EOF)
 	{
 		_putchar('$');
+		_putchar(' ');
 
-		getline(&line, &len, stdin);
 
 	}
 	free(line);

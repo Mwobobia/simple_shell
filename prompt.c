@@ -8,9 +8,7 @@ int user_prompt(void)
 
 	while (getline(&line, &len, stdin)!=EOF)
 	{
-		_putchar('$');
-		_putchar(' ');
-
+		_puts("Carol$ ");
 
 	}
 	free(line);

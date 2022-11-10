@@ -12,3 +12,18 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
+/**
+  * _puts - prints a string to stdout
+  * @str: string to print
+  *
+  * Return: 0 on success
+  */
+int _puts(char *str)
+{
+	while(*str != '\0')
+	{
+		_putchar(*str);
+		str++;
+	}
+	return (0);
+}

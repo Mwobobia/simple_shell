@@ -42,7 +42,11 @@ void check_path(char **string, char **env)
 	char *str1, *str2, *path;
 	int i, start, last;
 
+<<<<<<< HEAD
 	str1 = _strcat("/", string[0]);
+=======
+	str1 = concatenate_strings("/", string[0]);
+>>>>>>> ed9f597af436fb67e9f1eb21947a20e3e4d59c81
 	path = getenv(env);
 	if (path == NULL)
 	{

@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+void check_path(char **string, char **env);
+char *_strcat(char *dest, char *src);
 int _puts(char *str);
 int _putchar(char c);
 int user_prompt(void);

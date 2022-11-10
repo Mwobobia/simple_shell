@@ -12,7 +12,7 @@ void check_path(char **string, char **env)
 	int i, start, last;
 
 	str1 = concatenate_strings("/", string[0]);
-	path = getenv("PATH", env);
+	path = getenv(env);
 	if (path == NULL)
 	{
 		free(str1);

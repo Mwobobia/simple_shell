@@ -1,6 +1,37 @@
 #include "shell.h"
 
 /**
+ *  * _strcat - contatenate two strings
+ *   *
+ *    * @dest: Destination string
+ *     * @src: Source string
+ *      *
+ *       * Return: 0
+ *        */
+
+
+char *_strcat(char *dest, char *src)
+{
+	int i = 0;
+	int j = 0;
+
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0')
+	{
+		dest[i] += src[j];
+		i++;
+		j++;
+	}
+
+	dest += '\0';
+	return (dest);
+}
+
+
+/**
  * check_path - check if command is in the path directories
  * @string: an array of strings
  * @env: an array of env vars
@@ -11,8 +42,8 @@ void check_path(char **string, char **env)
 	char *str1, *str2, *path;
 	int i, start, last;
 
-	str1 = concatenate_strings("/", string[0]);
-	path = getenv("PATH", env);
+	str1 = _strcat("/", string[0]);
+	path = getenv(env);
 	if (path == NULL)
 	{
 		free(str1);
@@ -30,7 +61,7 @@ void check_path(char **string, char **env)
 			}
 			else
 				path[i] = '\0';
-			str2 = concatenate_strings(path + start, str1);
+			str2 = _strcat(path + start, str1);
 			if (access(str2, F_OK) == 0)
 			{
 				free(string[0]);

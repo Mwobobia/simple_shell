@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-void check_path(char **string, char **env);
+void check_path(char **string, const char **env);
 char *_strcat(char *dest, char *src);
 int _puts(char *str);
 int _putchar(char c);

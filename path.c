@@ -37,17 +37,13 @@ char *_strcat(char *dest, char *src)
  * @env: an array of env vars
  * Return: pointer to the linked list
  */
-void check_path(char **string, char **env)
+void check_path(char **string, const char **env)
 {
 	char *str1, *str2, *path;
 	int i, start, last;
 
-<<<<<<< HEAD
 	str1 = _strcat("/", string[0]);
-=======
-	str1 = concatenate_strings("/", string[0]);
->>>>>>> ed9f597af436fb67e9f1eb21947a20e3e4d59c81
-	path = getenv(env);
+	path = getenv(*env);
 	if (path == NULL)
 	{
 		free(str1);

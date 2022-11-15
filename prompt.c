@@ -26,7 +26,6 @@ char *user_prompt(void)
 		}
 	}
 
-	free(line);
-	exit(EXIT_SUCCESS);
+	return(line);
 
 }

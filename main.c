@@ -1,17 +1,32 @@
 #include "shell.h"
 /**
-  * main - main entry point
-  *
-  * Return: 0 on sucess
-  */
+ * main - main entry point
+ *
+ * Return: 0 on sucess
+ */
 int main(void)
 {
+
+
+
+	/*}
+
+	  void loop(void)
+	  {
+	 */
 	char *line;
-	__attribute__((unused))char **argv;
+	char **argv;
+	__attribute__((unused))int status;
+	do
+	{
+		line = user_prompt();
+		argv = tokenize(line);
+//		status = _execve(argv);
 
-	line = user_prompt();
-	argv = tokenize(line);
+		free(line);
+		free(argv);
+
+	} while (1);
 	
-	return (0);
+	return(0);
 }
-

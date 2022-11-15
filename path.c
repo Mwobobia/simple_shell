@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- *  * _strcat - contatenate two strings
- *   *
- *    * @dest: Destination string
- *     * @src: Source string
- *      *
- *       * Return: 0
- *        */
+ * _strcat - contatenate two strings
+ *
+ * @dest: Destination string
+ * @src: Source string
+ *
+ * Return: 0
+ */
 
 
 char *_strcat(char *dest, char *src)

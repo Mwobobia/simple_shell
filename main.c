@@ -6,7 +6,12 @@
   */
 int main(void)
 {
-	user_prompt();
+	char *line;
+	__attribute__((unused))char **argv;
+
+	line = user_prompt();
+	argv = tokenize(line);
+	
 	return (0);
 }
 

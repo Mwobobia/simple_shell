@@ -1,7 +1,6 @@
 #include "shell.h"
 
-int user_prompt(void)
-
+char *user_prompt(void)
 {
 	char *line = NULL;
 	size_t len = 0;
@@ -17,7 +16,7 @@ int user_prompt(void)
 			{
 
 				/* We put our argument processing here*/
-				printf("Received: %s", line);
+				return (line);
 			}
 			else
 			{
@@ -27,17 +26,7 @@ int user_prompt(void)
 		}
 	}
 
-	/**
-	 * Previous Code
-
-	 while (getline(&line, &len, stdin)!=EOF)
-	 {
-	 _puts("Carol$ ");
-
-	 }
-	 *
-	 */
 	free(line);
+	exit(EXIT_SUCCESS);
 
-	return (0);
 }

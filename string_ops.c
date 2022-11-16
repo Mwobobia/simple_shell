@@ -98,7 +98,7 @@ char *_strdup(char *src)
 	size = 0;
 	while (src[size])
 		size++;
-	new = malloc(sizeof(char) * (size + 1))
+	new = malloc(sizeof(char) * (size + 1));
 		if (new == NULL)
 			return (NULL);
 	i = 0;

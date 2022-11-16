@@ -11,7 +11,7 @@ char **tokenize(char *line)
 	toks = malloc(sizeof(char*) * 64);
 	if (toks == NULL)
 	{
-		perror("toks");
+		perror("hsh");
 		exit(EXIT_FAILURE);
 	}
 	token = strtok(line, delim);

@@ -24,6 +24,11 @@ typedef struct builtin_s
 int builtin_check(char **argv, char *input);
 int hsh_exit(char **argv, char *input);
 
+/*String operations*/
+int _atoi(char *s);
+int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
+char *_strdup(char *src);
 
 /*Functions Prototypes*/
 int _execve(char **argv);

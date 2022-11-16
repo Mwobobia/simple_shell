@@ -81,18 +81,24 @@ int _strcmp(char *s1, char *s2)
 	return (*(s1 + i) - *(s2 + i));
 }
 
-
-char	*_strdup(char *src)
+/*
+ * _strdup - string duplicator
+ * @src: source
+ *
+ * Return: returns duplicated strings
+ */
+char _strdup(char *src)
 {
-	char	*new;
-	int		i;
-	int		size;
+	char *new;
+	int i;
+	int size;
 
 	size = 0;
 	while (src[size])
 		size++;
-	if (!(new = malloc(sizeof(char) * (size + 1))))
-		return (NULL);
+	new = malloc(sizeof(char) * (size + 1))
+		if (new == NULL)
+			return (NULL);
 	i = 0;
 	while (src[i])
 	{

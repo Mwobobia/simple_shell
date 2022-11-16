@@ -10,6 +10,8 @@ int _execve(char **argv)
 	int status = 0;
 	pid_t child_pid;
 
+	if (argv[0] == NULL)
+		return (1);
 	child_pid = fork();
 
 	if (child_pid == -1)

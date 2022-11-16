@@ -19,11 +19,7 @@ void loop(void)
 	{
 		line = user_prompt();
 		argv = tokenize(line);
-<<<<<<< HEAD
-		status = _execve(argv);
-=======
 		_execve(argv);
->>>>>>> b0cb2069209690fad5b4a89c16c85a973280a69c
 
 		free(line);
 		free(argv);

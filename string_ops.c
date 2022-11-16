@@ -82,7 +82,7 @@ int _strcmp(char *s1, char *s2)
 }
 
 
-char	*_strdup(char *src)
+char *_strdup(char *src)
 {
 	char	*new;
 	int		i;

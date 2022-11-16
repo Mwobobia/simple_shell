@@ -6,17 +6,11 @@
  */
 int main(void)
 {
-/*
-}
-
-void loop(void)
-{
-*/
+	
 	char *line;
 	char **argv;
 /*	int status;*/
-	do
-	{
+	do {
 		line = user_prompt();
 		argv = tokenize(line);
 		_execve(argv);

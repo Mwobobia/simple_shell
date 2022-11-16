@@ -80,13 +80,18 @@ int _strcmp(char *s1, char *s2)
 		i++;
 	return (*(s1 + i) - *(s2 + i));
 }
-
+/**
+  * _strdup - string duplicator
+  * @src: source
+  *
+  * Return: returns duplicated strings
+  */
 
 char *_strdup(char *src)
 {
-	char	*new;
-	int		i;
-	int		size;
+	char *new;
+	int i;
+	int size;
 
 	size = 0;
 	while (src[size])

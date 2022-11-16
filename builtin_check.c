@@ -8,18 +8,17 @@
  */
 int builtin_check(char **argv, char *input)
 {
-	int i, len;
+	int i;
 	builtin_t builtin_list[] = {
 		{"exit", hsh_exit},
 		{NULL, NULL}
 	};
 
-	len = strlen(argv[0]);
 	for (i = 0; builtin_list[i].name != NULL; i++)
 	{
-		if (strncmp(argv[0], "exit", 4) == 0)
+		if (_strcmp(argv[0], "exit") == 0)
 			return (builtin_list[0].func_builtin(argv, input));
-		if (strncmp(argv[0], builtin_list[i].name, len) == 0)
+		if (_strcmp(argv[0], builtin_list[i].name) == 0)
 			return (builtin_list[i].func_builtin(argv));
 	}
 	return (-1);

@@ -6,27 +6,26 @@
  */
 int main(void)
 {
+/*
+}
 
-
-
-	/*}
-
-	  void loop(void)
-	  {
-	 */
+void loop(void)
+{
+*/
 	char *line;
 	char **argv;
-	__attribute__((unused))int status;
+	int status;
 	do
 	{
 		line = user_prompt();
 		argv = tokenize(line);
-//		status = _execve(argv);
+		_execve(argv);
 
 		free(line);
 		free(argv);
 
 	} while (1);
-	
-	return(0);
+
+	return (0);
+
 }

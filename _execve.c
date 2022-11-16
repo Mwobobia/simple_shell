@@ -2,7 +2,7 @@
 
 int _execve(char **argv)
 {
-	int status;
+	int status = 0;
 	pid_t child_pid;
 	child_pid = fork();
 

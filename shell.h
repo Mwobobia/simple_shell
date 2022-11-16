@@ -10,6 +10,22 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+/**
+  *builtin_s - structure to implement built-in functions
+  *
+  */
+typedef struct builtin_s
+{
+	char *name;
+	int (*func_builtin)();
+} builtin_t;
+
+/*Built in functions prototypes*/
+int builtin_check(char **argv, char *input);
+int hsh_exit(char **argv, char *input);
+
+
+/*Functions Prototypes*/
 int _execve(char **argv);
 void loop(void);
 char **tokenize(char *line);

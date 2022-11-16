@@ -6,11 +6,7 @@
  */
 int main(void)
 {
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> e14e36a001c9b7bace1b0edaa50bb92703e10b26
 	char *line;
 	char **argv;
 /*	int status;*/

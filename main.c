@@ -21,7 +21,7 @@ int main(void)
 	{
 		line = user_prompt();
 		argv = tokenize(line);
-//		status = _execve(argv);
+		status = _execve(argv);
 
 		free(line);
 		free(argv);

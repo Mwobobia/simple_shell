@@ -12,6 +12,8 @@ int _execve(char **argv)
 	{
 		if(execve(argv[0], argv, NULL) == -1)
 			perror("hsh");
+		free(argv);
+		exit(EXIT_SUCCESS);
 
 	}
 	else

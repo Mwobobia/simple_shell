@@ -1,5 +1,10 @@
 #include "shell.h"
-
+/**
+  * tokenize - create tokens using delimiters
+  * @line: argument from readline
+  *
+  * Return: toks, argument vector
+  */
 char **tokenize(char *line)
 {
 	const char *delim = " \t\r\n\a";
@@ -8,7 +13,7 @@ char **tokenize(char *line)
 	int i = 0;
 
 
-	toks = malloc(sizeof(char*) * 64);
+	toks = malloc(sizeof(char *) * 64);
 	if (toks == NULL)
 	{
 		perror("hsh");
@@ -16,13 +21,13 @@ char **tokenize(char *line)
 	}
 	token = strtok(line, delim);
 
-	while(token != NULL)
+	while (token != NULL)
 	{
 		toks[i] = strdup(token);
 		i++;
-		token = strtok(NULL,delim);
+		token = strtok(NULL, delim);
 	}
 	toks[i] = NULL;
-	return toks;
+	return (toks);
 }
 

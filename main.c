@@ -14,7 +14,7 @@ void loop(void)
 */
 	char *line;
 	char **argv;
-	int status;
+/*	int status;*/
 	do
 	{
 		line = user_prompt();

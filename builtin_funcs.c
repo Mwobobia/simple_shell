@@ -18,7 +18,7 @@ int hsh_exit(char **argv, char *input)
 	}
 	else
 	{
-		estatus = atoi(argv[1]);
+		estatus = _atoi(argv[1]);
 		if (estatus == -1)
 		{
 			_puts("Invalid exit status\n");

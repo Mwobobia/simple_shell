@@ -23,7 +23,7 @@ char **tokenize(char *line)
 
 	while (token != NULL)
 	{
-		toks[i] = strdup(token);
+		toks[i] = _strdup(token);
 		i++;
 		token = strtok(NULL, delim);
 	}

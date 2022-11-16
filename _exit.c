@@ -21,7 +21,7 @@ int _exits(char **args, char *old, char *new)
 	}
 	else
 	{
-		i = atoi(args[1]);
+		i = _atoi(args[1]);
 /*		_free_double(args);*/
 		exit(i);
 	}

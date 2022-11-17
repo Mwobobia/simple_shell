@@ -64,4 +64,3 @@ char *tokenize(char *line, const char *delim, char **saveptr)
 	}
 	return (token);
 }
-

@@ -25,6 +25,7 @@ void loop(void)
 	char *line = NULL;
 	char **argv;
 	int loop_c = 0;
+	int atty_mode = 0;
 	size_t len = 0;
 
 	signal(SIGINT, sighandler);
@@ -34,7 +35,8 @@ void loop(void)
 	{
 		{
 			child = 0;
-			if (isatty(STDIN_FILENO))
+			atty_mode = isatty(STDIN_FILENO);
+			if (atty_mode)
 			{
 			_puts("Carol$ ");
 			}
@@ -59,6 +61,10 @@ void loop(void)
 				_putchar('\n');
 				_exit(0);
 			}
+			if (!atty_mode)
+			{
+				_exit(0);
+			}
 		}
 	}
 }
@@ -75,3 +81,4 @@ void sighandler(int sig_num)
 		_puts("\nCarol$ ");
 	signal(SIGINT, sighandler);
 }
+

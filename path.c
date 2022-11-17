@@ -1,81 +1,98 @@
 #include "shell.h"
 
 /**
- * _strcat - contatenate two strings
- *
- * @dest: Destination string
- * @src: Source string
- *
- * Return: 0
- */
-
-
-char *_strcat(char *dest, char *src)
-{
-	int i = 0;
-	int j = 0;
-
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
-	while (src[j] != '\0')
-	{
-		dest[i] += src[j];
-		i++;
-		j++;
-	}
-
-	dest += '\0';
-	return (dest);
-}
-
-
-/**
  * check_path - check if command is in the path directories
- * @string: an array of strings
- * @env: an array of env vars
+ * @argv: an array of strings
+ *
  * Return: pointer to the linked list
  */
-void check_path(char **string, const char **env)
+char **check_path(char **argv)
 {
-	char *str1, *str2, *path;
-	int i, start, last;
+	char *pathname, *delim, *path, *path_toks, *pos;
+	struct stat st;
 
-	str1 = _strcat("/", string[0]);
-	path = getenv(*env);
+	path = envcopy("PATH");
+	delim = ":";
+	pos = NULL;
 	if (path == NULL)
 	{
-		free(str1);
-		exit(0);
+		_puts("PATH variable not found\n");
+		_exit(22);
 	}
-	start = i = last = 0;
-	while (path[i])
+	path_toks = tokenize(path, delim, &pos);
+	while (path_toks != NULL)
 	{
-		if (path[i] == ':' || path[i + 1] == '\0')
+		pathname = path_concat(path_toks, argv[0]);
+		if (stat(pathname, &st) == 0)
 		{
-			if (path[i + 1] == '\0')
-			{
-				i += 1;
-				last = 1;
-			}
-			else
-				path[i] = '\0';
-			str2 = _strcat(path + start, str1);
-			if (access(str2, F_OK) == 0)
-			{
-				free(string[0]);
-				string[0] = str2;
-				free(str1);
-				return;
-			}
-			free(str2);
-			if (last)
-				break;
-			path[i] = ':';
-			start = i + 1;
+			argv[0] = pathname;
+			free(path);
+			return (argv);
 		}
-		i += 1;
+		path_toks = tokenize(NULL, delim, &pos);
+		free(pathname);
 	}
-	free(str1);
+	free(path);
+	return (argv);
+}
+
+/**
+ * envcopy - Finds path and strdup its value
+ * @pathname: PATH name
+ *
+ * Return: PATH value
+ */
+char *envcopy(char *pathname)
+{
+	char **envp, *path;
+	int len, i;
+
+	envp = environ;
+	len = _strlen(pathname);
+	i = 0;
+	while (envp[i] != NULL)
+	{
+		if (_strcmp(envp[i], pathname) == 0)
+		{
+			path = _strdup(&envp[i][len + 1]);
+			return (path);
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+/**
+  * path_concat - concatantate two strs with '/' in betweem
+  * @s1: str 1
+  * @s2: str 2
+  *
+  * Return: pointer to new string
+  */
+char *path_concat(char *s1, char *s2)
+{
+	char *s, *p;
+	int s1len, s2len;
+
+	s1len = s2len = 0;
+	s1len = _strlen(s1);
+	s2len = _strlen(s2);
+	s = malloc((s1len + s2len + 2) * sizeof(char));
+	p = s;
+	while (*s1 != '\0')
+	{
+		*s = *s1;
+		s++;
+		s1++;
+	}
+	*s = '/';
+	s++;
+	while (*s2 != '\0')
+	{
+		*s = *s2;
+		s++;
+		s2++;
+	}
+	*s = '\0';
+	return (p);
 }

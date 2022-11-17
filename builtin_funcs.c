@@ -1,11 +1,11 @@
 #include "shell.h"
 /**
-  * hsh_exit - Implement exit
-  * @argv: argument vector
-  * @input: exit status input
-  *
-  * Return: 1 on success
-  */
+ * hsh_exit - Implement exit
+ * @argv: argument vector
+ * @input: exit status input
+ *
+ * Return: 1 on success
+ */
 int hsh_exit(char **argv, char *input)
 {
 	int estatus;
@@ -29,5 +29,31 @@ int hsh_exit(char **argv, char *input)
 		_exit(estatus);
 	}
 	return (1);
+}
 
+/**
+ * hsh_printenv - print the list of environment variables
+ * @argv: Arguments passed
+ *
+ * Return: 0 on success, 1 on failure
+ */
+int hsh_printenv(char **argv)
+{
+	char c;
+	int i, j;
+
+	if (argv[1] == NULL)
+	{
+		for (i = 0; environ[i]; i++)
+		{
+			for (j = 0; environ[i][j]; j++)
+			{
+				c = environ[i][j];
+				_putchar(c);
+			}
+			_putchar('\n');
+		}
+		return (0);
+	}
+	return (1);
 }

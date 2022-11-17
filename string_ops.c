@@ -7,46 +7,18 @@
  */
 int _atoi(char *s)
 {
-	int a, b, si, j;
+	int i, num;
 
-	unsigned int e;
-
-	a = 0;
-	si = 1;
-	e = 0;
-
-	j = 0;
-
-	while (s[a] != '\0')
+	i = num = 0;
+	while (s[i] != '\0')
 	{
-		b = s[a];
-		if (b == 45)
-		{
-			si = si * (-1);
-		}
-		if (b >= 48 && b <= 57)
-		{
-			b = s[a] - 48;
-			if (e == 0)
-			{
-				e = b;
-			}
-			else
-			{
-				e = (e * 10) + b;
-				++j;
-			}
-		}
-		else if (j > 0)
-		{
-			break;
-		}
-		++a;
+		if (s[i] < '0' || s[i] > '9')
+			return (-1);
+		num = num * 10;
+		num += s[i] - '0';
+		i++;
 	}
-	e = e * si;
-
-	return (e);
-
+	return (num);
 }
 
 /**
@@ -82,11 +54,11 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
-  * _strdup - string duplicator
-  * @src: source
-  *
-  * Return: returns duplicated strings
-  */
+ * _strdup - string duplicator
+ * @src: source
+ *
+ * Return: returns duplicated strings
+ */
 
 char *_strdup(char *src)
 
@@ -99,8 +71,8 @@ char *_strdup(char *src)
 	while (src[size])
 		size++;
 	new = malloc(sizeof(char) * (size + 1));
-		if (new == NULL)
-			return (NULL);
+	if (new == NULL)
+		return (NULL);
 	i = 0;
 	while (src[i])
 	{
@@ -110,3 +82,35 @@ char *_strdup(char *src)
 	new[i] = '\0';
 	return (new);
 }
+
+/**
+ * _strcat - contatenate two strings
+ *
+ * @dest: Destination string
+ * @src: Source string
+ *
+ * Return: 0
+ */
+
+
+char *_strcat(char *dest, char *src)
+{
+	int i = 0;
+	int j = 0;
+
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0')
+	{
+		dest[i] += src[j];
+		i++;
+		j++;
+	}
+
+	dest += '\0';
+	return (dest);
+}
+
+

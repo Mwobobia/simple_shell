@@ -1,35 +1,54 @@
 #include "shell.h"
+
+/**
+  * launch - launches the execve command by checking path first
+  * @argv: argument vector
+  *
+  * Returns: void
+  */
+void launch(char **argv)
+{
+	printf("Ar: %d\n", argv[0][0]);
+	if (argv[0][0] == '/')
+		_execve(argv);
+	else
+	{
+		argv = check_path(argv);
+		if (argv != NULL)
+			_execve(argv);
+	}
+}
+
 /**
   * _execve - Executes a function
   * @argv: argument vector from user
   *
-  * Return: 1 on success
+  * Return: void
   */
-int _execve(char **argv)
+void _execve(char **argv)
 {
 	int status = 0;
 	pid_t child_pid;
 
-	if (argv[0] == NULL)
-		return (1);
 	child_pid = fork();
 
 	if (child_pid == -1)
+	{
 		perror("hsh");
+		_exit(99);
+	}
 	if (child_pid == 0)
 
 	{
-		if (execve(argv[0], argv, NULL) == -1)
+		if (execve(argv[0], argv, environ) == -1)
 			perror("hsh");
 		free(argv);
-		exit(EXIT_SUCCESS);
+		_exit(1);
 
 	}
 	else
 	{
 		wait(&status);
 	}
-	return (1);
-
 }
 

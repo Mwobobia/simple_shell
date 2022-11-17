@@ -50,8 +50,6 @@ char *tokenize(char *line, const char *delim, char **saveptr);
 char *_strcat(char *dest, char *src);
 int _puts(char *str);
 int _putchar(char c);
-int _puts_p(char *str);
-int _putchar_p(char c);
 char *user_prompt(void);
 char **make_argv(char *input);
 void sighandler(int sig_num);

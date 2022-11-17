@@ -34,7 +34,10 @@ void loop(void)
 	{
 		{
 			child = 0;
-			_puts_p("Carol$ ");
+			if (isatty(STDIN_FILENO))
+			{
+			_puts("Carol$ ");
+			}
 			if (getline(&line, &len, stdin) != EOF)
 			{
 				if (line[0] != '\n' && line[0] != '#')
@@ -69,6 +72,6 @@ void sighandler(int sig_num)
 {
 	(void)sig_num;
 	if (child == 0)
-		_puts_p("\nCarol$ ");
+		_puts("\nCarol$ ");
 	signal(SIGINT, sighandler);
 }

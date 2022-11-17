@@ -21,7 +21,6 @@ int main(int argc, char **argv, char **env)
  */
 void loop(void)
 {
-
 	char *line = NULL;
 	char **argv;
 	int loop_c = 0;
@@ -30,16 +29,13 @@ void loop(void)
 
 	signal(SIGINT, sighandler);
 	signal(SIGQUIT, SIG_IGN);
-
 	while (1)
 	{
 		{
 			child = 0;
 			atty_mode = isatty(STDIN_FILENO);
 			if (atty_mode)
-			{
-			_puts("Carol$ ");
-			}
+				_puts("Carol$ ");
 			if (getline(&line, &len, stdin) != EOF)
 			{
 				if (line[0] != '\n' && line[0] != '#')
@@ -62,9 +58,7 @@ void loop(void)
 				_exit(0);
 			}
 			if (!atty_mode)
-			{
 				_exit(0);
-			}
 		}
 	}
 }

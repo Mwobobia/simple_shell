@@ -249,5 +249,6 @@ Pair programming and team work
 Building a test suite to check our own code
 
 Authors
+
 Caroline Mwobobia
 Nahashon Ndirangu

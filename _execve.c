@@ -8,7 +8,6 @@
   */
 void launch(char **argv)
 {
-	printf("Ar: %d\n", argv[0][0]);
 	if (argv[0][0] == '/')
 		_execve(argv);
 	else

@@ -12,6 +12,7 @@ int builtin_check(char **argv, char *input)
 	builtin_t builtin_list[] = {
 		{"exit", hsh_exit},
 		{"env", hsh_printenv},
+		{"cd", hsh_cd},
 		{NULL, NULL}
 	};
 

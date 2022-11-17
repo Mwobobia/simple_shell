@@ -28,12 +28,12 @@ void loop(void)
 	size_t len = 0;
 
 	signal(SIGINT, sighandler);
-	signal(SIGQUIT,SIG_IGN);
+	signal(SIGQUIT, SIG_IGN);
 
 	while (1)
 	{
 		{
-			inchild = 0;
+			child = 0;
 			_puts("Carol$ ");
 			if (getline(&line, &len, stdin) != EOF)
 			{
@@ -43,7 +43,7 @@ void loop(void)
 
 					if (builtin_check(argv, line) == -1)
 					{
-						inchild = 1;
+						child = 1;
 						launch(argv);
 					}
 					free(argv);
@@ -66,8 +66,8 @@ void loop(void)
  */
 void sighandler(int sig_num)
 {
-        (void)sig_num;
-        if (inchild == 0)
-                _puts("\nCarol$ ");
-        signal(SIGINT, sighandler);
+	(void)sig_num;
+	if (child == 0)
+		_puts("\nCarol$ ");
+	signal(SIGINT, sighandler);
 }

@@ -92,3 +92,27 @@ int wordcount(char *str)
 	}
 	return (wc);
 }
+
+/**
+ * _strncmp - compare two strings
+ *
+ * @s1: first string to compare with @s2
+ * @s2: second string from which to compare @s1
+ * @n: Length of string to compare to
+ *
+ * Return: integer value of characters of @s1 minus character number of @s2
+ */
+int _strncmp(char *s1, char *s2, int n)
+{
+	char c1, c2;
+
+	while (n > 0)
+	{
+		c1 = *s1++;
+		c2 = *s2++;
+		if (c1 == '\0' || c1 != c2)
+			return (c1 - c2);
+		n--;
+	}
+	return (c1 - c2);
+}

@@ -13,7 +13,7 @@
 #include <signal.h>
 /* Global variable */
 extern char **environ;
-int inchild;
+int child;
 
 /**
  *builtin_s - structure to implement built-in functions
@@ -29,11 +29,13 @@ typedef struct builtin_s
 int builtin_check(char **argv, char *input);
 int hsh_exit(char **argv, char *input);
 int hsh_printenv(char **argv);
+int hsh_cd(char **argv);
 
 /*String operations*/
 int _atoi(char *s);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+int _strncmp(char *s1, char *s2, int n);
 char *_strdup(char *src);
 char *_strpbrk(char *s, const char *accept);
 int _strspn(char *s, const char *accept);

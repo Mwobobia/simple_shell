@@ -52,7 +52,7 @@ char *envcopy(char *pathname)
 	i = 0;
 	while (envp[i] != NULL)
 	{
-		if (_strcmp(envp[i], pathname) == 0)
+		if (_strncmp(envp[i], pathname, len) == 0)
 		{
 			path = _strdup(&envp[i][len + 1]);
 			return (path);

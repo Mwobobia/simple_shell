@@ -57,3 +57,18 @@ int hsh_printenv(char **argv)
 	}
 	return (1);
 }
+
+/**
+  * hsh_cd - changes the current directory of the process
+  * @argv: Arguments passed
+  *
+  * Return: cd
+  */
+int hsh_cd(char **argv)
+{
+	if (argv[1] == NULL)
+		argv[1] = "/home";
+	if (chdir(argv[1]) != 0)
+		perror("hsh");
+	return (1);
+}

@@ -34,7 +34,7 @@ void loop(void)
 	{
 		{
 			child = 0;
-			_puts("Carol$ ");
+			_puts_p("Carol$ ");
 			if (getline(&line, &len, stdin) != EOF)
 			{
 				if (line[0] != '\n' && line[0] != '#')
@@ -64,10 +64,11 @@ void loop(void)
  * sighandler - Print out the prompt if ctrl-C is hit
  * @sig_num: Unused variable necessary for sighandler function types
  */
+
 void sighandler(int sig_num)
 {
 	(void)sig_num;
 	if (child == 0)
-		_puts("\nCarol$ ");
+		_puts_p("\nCarol$ ");
 	signal(SIGINT, sighandler);
 }

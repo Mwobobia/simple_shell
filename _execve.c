@@ -48,6 +48,7 @@ void _execve(char **argv)
 	else
 	{
 		wait(&status);
+
 	}
 }
 

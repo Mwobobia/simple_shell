@@ -21,10 +21,8 @@ int main(int argc, char **argv, char **env)
  */
 void loop(void)
 {
-	char *line = NULL;
-	char **argv;
-	int loop_c = 0;
-	int atty_mode = 0;
+	char *line = NULL, **argv;
+	int loop_c = 0, atty_mode = 0;
 	size_t len = 0;
 
 	signal(SIGINT, sighandler);

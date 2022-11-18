@@ -12,6 +12,8 @@
 #include <sys/stat.h>
 #include <signal.h>
 #include <errno.h>
+#include <limits.h>
+
 /* Global variable */
 extern char **environ;
 int child;
